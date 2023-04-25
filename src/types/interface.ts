@@ -7,7 +7,7 @@ export interface IPortalResponse {
 export interface ISources {
     status: string;
     sources: ISource[];
- }
+}
 
 export interface ISource {
     category: string;
@@ -28,9 +28,23 @@ export interface IArticle {
     title: string;
     url: string;
     urlToImage: string;
- }
+}
 
- type Source = {
+type Source = {
     id: string;
     name: string;
- }
+};
+
+export interface Options {
+    sources?: string;
+    apiKey?: string;
+}
+
+export enum Method {
+    GET = 'GET',
+    POST = 'POST',
+    PUT = 'PUT',
+    DELETE = 'DELETE',
+}
+
+export type CallbackFunction = (data: IPortalResponse) => void;
