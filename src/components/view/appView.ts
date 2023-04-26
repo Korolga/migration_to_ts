@@ -1,4 +1,4 @@
-import { IPortalResponse, ISources } from '../../types/interface';
+import { IMainResponse, ISources } from '../../types/interface';
 import News from './news/news';
 import Sources from './sources/sources';
 
@@ -11,7 +11,7 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    drawNews(data: IPortalResponse) {
+    drawNews(data: IMainResponse) {
         const values = data?.articles ? data?.articles : [];
         this.news.draw(values);
     }

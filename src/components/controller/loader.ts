@@ -1,17 +1,17 @@
-import { CallbackFunction, IPortalResponse, Method, Options } from '../../types/interface';
+import { CallbackFunction, Method, IOptions, IMainResponse } from '../../types/interface';
 
 class Loader {
     baseLink: string;
-    options: Options;
+    options: IOptions;
 
-    constructor(baseLink: string, options: Options) {
+    constructor(baseLink: string, options: IOptions) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
     getResp(
-        params: { endpoint: string; options?: Options },
-        callback = (data: IPortalResponse) => {
+        params: { endpoint: string; options?: IOptions },
+        callback = (data: IMainResponse) => {
             console.error('No callback for GET response' + data.totalResults);
         }
     ) {
@@ -28,7 +28,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: Options, endpoint: string) {
+    makeUrl(options: IOptions, endpoint: string) {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 

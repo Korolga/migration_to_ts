@@ -1,7 +1,19 @@
+export interface IMainResponse {
+    status: string;
+    totalResults: number;
+    articles: IArticle[];
+    sources: ISource[];
+}
+
 export interface IPortalResponse {
     status: string;
     totalResults: number;
     articles: IArticle[];
+}
+
+export interface IOptions {
+    sources?: string;
+    apiKey?: string;
 }
 
 export interface ISources {
@@ -35,11 +47,6 @@ type Source = {
     name: string;
 };
 
-export interface Options {
-    sources?: string;
-    apiKey?: string;
-}
-
 export enum Method {
     GET = 'GET',
     POST = 'POST',
@@ -47,4 +54,4 @@ export enum Method {
     DELETE = 'DELETE',
 }
 
-export type CallbackFunction = (data: IPortalResponse) => void;
+export type CallbackFunction = (data: IMainResponse) => void;
